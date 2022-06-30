@@ -1,35 +1,3 @@
-[remap]
-
-importer="texture"
-type="StreamTexture"
-path="res://.import/tileGrass2.png-6ecd57a30aab60905942f26a7e9defb7.stex"
-metadata={
-"vram_texture": false
-}
-
-[deps]
-
-source_file="res://Assets/PNG/Retina/tileGrass2.png"
-dest_files=[ "res://.import/tileGrass2.png-6ecd57a30aab60905942f26a7e9defb7.stex" ]
-
-[params]
-
-compress/mode=0
-compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
-compress/normal_map=0
-flags/repeat=0
-flags/filter=true
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
-stream=false
-size_limit=0
-detect_3d=true
-svg/scale=1.0
+version https://git-lfs.github.com/spec/v1
+oid sha256:abc1469577d9b697cc70aebe9fc8606c0d940c7eb0a622e8bca270219b6267a7
+size 710

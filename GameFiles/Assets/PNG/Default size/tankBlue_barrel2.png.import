@@ -1,35 +1,3 @@
-[remap]
-
-importer="texture"
-type="StreamTexture"
-path="res://.import/tankBlue_barrel2.png-fb2aed4d0aa08880fe18da31a7ba0dcf.stex"
-metadata={
-"vram_texture": false
-}
-
-[deps]
-
-source_file="res://Assets/PNG/Default size/tankBlue_barrel2.png"
-dest_files=[ "res://.import/tankBlue_barrel2.png-fb2aed4d0aa08880fe18da31a7ba0dcf.stex" ]
-
-[params]
-
-compress/mode=0
-compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
-compress/normal_map=0
-flags/repeat=0
-flags/filter=true
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
-stream=false
-size_limit=0
-detect_3d=true
-svg/scale=1.0
+version https://git-lfs.github.com/spec/v1
+oid sha256:eb5f0176be4651326c05cc48259cd9c2fc979944f28fecf6efcf4567fea439e4
+size 734

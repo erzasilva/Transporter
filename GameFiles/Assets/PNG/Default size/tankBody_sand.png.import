@@ -1,35 +1,3 @@
-[remap]
-
-importer="texture"
-type="StreamTexture"
-path="res://.import/tankBody_sand.png-26188678f9f4801a30a8d645a79a8b21.stex"
-metadata={
-"vram_texture": false
-}
-
-[deps]
-
-source_file="res://Assets/PNG/Default size/tankBody_sand.png"
-dest_files=[ "res://.import/tankBody_sand.png-26188678f9f4801a30a8d645a79a8b21.stex" ]
-
-[params]
-
-compress/mode=0
-compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
-compress/normal_map=0
-flags/repeat=0
-flags/filter=true
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
-stream=false
-size_limit=0
-detect_3d=true
-svg/scale=1.0
+version https://git-lfs.github.com/spec/v1
+oid sha256:546f28592f9b6a4cc12c01255a142e28637460230819a5067641b791c986af42
+size 725

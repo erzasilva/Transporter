@@ -1,35 +1,3 @@
-[remap]
-
-importer="texture"
-type="StreamTexture"
-path="res://.import/explosion3.png-cd1c92c8fe46c7d4067b36641bfe560d.stex"
-metadata={
-"vram_texture": false
-}
-
-[deps]
-
-source_file="res://Assets/PNG/Retina/explosion3.png"
-dest_files=[ "res://.import/explosion3.png-cd1c92c8fe46c7d4067b36641bfe560d.stex" ]
-
-[params]
-
-compress/mode=0
-compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
-compress/normal_map=0
-flags/repeat=0
-flags/filter=true
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
-stream=false
-size_limit=0
-detect_3d=true
-svg/scale=1.0
+version https://git-lfs.github.com/spec/v1
+oid sha256:4c7481d7424ce86790fdb7e74474f3771aba2cc40dcaf54d6cf477fc962f6791
+size 710

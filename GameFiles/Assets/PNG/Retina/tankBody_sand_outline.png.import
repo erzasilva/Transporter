@@ -1,35 +1,3 @@
-[remap]
-
-importer="texture"
-type="StreamTexture"
-path="res://.import/tankBody_sand_outline.png-70ccfbe06aefb056ac20468a760349e7.stex"
-metadata={
-"vram_texture": false
-}
-
-[deps]
-
-source_file="res://Assets/PNG/Retina/tankBody_sand_outline.png"
-dest_files=[ "res://.import/tankBody_sand_outline.png-70ccfbe06aefb056ac20468a760349e7.stex" ]
-
-[params]
-
-compress/mode=0
-compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
-compress/normal_map=0
-flags/repeat=0
-flags/filter=true
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
-process/normal_map_invert_y=false
-stream=false
-size_limit=0
-detect_3d=true
-svg/scale=1.0
+version https://git-lfs.github.com/spec/v1
+oid sha256:9c89c2100a395fa0145edc72f668a175e07b6dd67b6d551e4c3ef02b06ae6702
+size 743
