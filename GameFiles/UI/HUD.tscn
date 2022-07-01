@@ -17,10 +17,9 @@ pressed = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="InnerRing" type="TextureRect" parent="."]
-visible = false
-margin_left = 62.0
-margin_top = 513.0
-margin_right = 158.0
-margin_bottom = 610.0
+margin_left = 91.0
+margin_top = 539.0
+margin_right = 163.0
+margin_bottom = 611.0
 rect_min_size = Vector2( 48, 48 )
 texture = ExtResource( 1 )
