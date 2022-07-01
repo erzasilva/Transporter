@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/UI/flatDark00.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/lineDark06.png" type="Texture" id=2]
+[ext_resource path="res://UI/HUD.gd" type="Script" id=3]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="OuterRing" type="TouchScreenButton" parent="."]
+position = Vector2( 52, 530 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 2 )
+
+[node name="InnerRing" type="TextureRect" parent="OuterRing"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )

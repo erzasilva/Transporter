@@ -1,6 +1,21 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://World/Tilesets/TankTerrain.tres" type="TileSet" id=1]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Elements/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Elements/Player.gd" type="Script" id=4]
 
 [node name="TestWorld" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Route" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
 format = 1
+tile_data = PoolIntArray( -65542, 27, 0, -65541, 32, 0, -65540, 32, 0, -65539, 32, 0, -65538, 22, 0, -65537, 11, 0, -131072, 37, 0, -131071, 39, 0, -131070, 39, 0, -131069, 39, 0, -131068, 39, 0, -131067, 30, 0, -6, 38, 0, -5, 40, 0, -4, 40, 0, -3, 40, 0, -2, 38, 0, -1, 11, 0, -65536, 34, 0, -65535, 8, 0, -65534, 8, 0, -65533, 8, 0, -65532, 8, 0, -65531, 34, 0, 65530, 38, 0, 65531, 40, 0, 65532, 40, 0, 65533, 40, 0, 65534, 33, 0, 65535, 36, 0, 0, 14, 0, 1, 8, 0, 2, 8, 0, 3, 8, 0, 4, 8, 0, 5, 34, 0, 131066, 38, 0, 131067, 40, 0, 131068, 15, 0, 131069, 40, 0, 131070, 38, 0, 131071, 11, 0, 65536, 34, 0, 65537, 8, 0, 65538, 2, 0, 65539, 2, 0, 65540, 2, 0, 65541, 34, 0, 196602, 18, 0, 196603, 32, 0, 196604, 32, 0, 196605, 32, 0, 196606, 13, 0, 196607, 11, 0, 131072, 17, 0, 131073, 39, 0, 131074, 39, 0, 131075, 39, 0, 131076, 39, 0, 131077, 7, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+script = ExtResource( 4 )
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[connection signal="Move_detected" from="HUD" to="Player" method="_on_HUD_Move_detected"]
