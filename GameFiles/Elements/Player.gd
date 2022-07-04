@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
 #helpers
-var speed = 10000
+var speed = 200
 var move_dir = Vector2.ZERO
+var last_dir = Vector2.ZERO
 var inventory_open_slots
+
 
 
 #main Variables
@@ -14,12 +16,17 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
-	move_and_slide((move_dir * speed * delta))
+	move_and_slide((move_dir * speed))
 	
 	
 func _on_HUD_Move_detected(move_vector):
-	move_dir = move_vector
-	rotation = move_vector.angle()
+	if move_vector == Vector2.ZERO:
+		last_dir = move_dir
+		move_dir = move_vector
+		rotation = last_dir.angle()
+	else:
+		move_dir = move_vector
+		rotation = move_vector.angle()
 
 
 #inventory functions
