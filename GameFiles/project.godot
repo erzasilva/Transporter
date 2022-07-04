@@ -25,6 +25,14 @@ window/stretch/aspect="keep"
 
 pointing/emulate_touch_from_mouse=true
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Environment"
+2d_physics/layer_3="Pickups"
+2d_physics/layer_4="Props"
+2d_physics/layer_5="NPCs"
+
 [physics]
 
 common/enable_pause_aware_picking=true
