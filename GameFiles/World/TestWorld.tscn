@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://World/Tilesets/TankTerrain.tres" type="TileSet" id=1]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Elements/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Elements/Player.gd" type="Script" id=4]
+[ext_resource path="res://Elements/Pickup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Elements/DropOff.tscn" type="PackedScene" id=6]
 
 [node name="TestWorld" type="Node2D"]
 
@@ -19,5 +21,30 @@ collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Pickup" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 60, 182 )
+scale = Vector2( 0.48, 0.48 )
+
+[node name="Pickup2" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 62, 366 )
+scale = Vector2( 0.48, 0.48 )
+item_id = 1
+
+[node name="Pickup3" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 276, 447 )
+scale = Vector2( 0.48, 0.48 )
+item_id = 2
+
+[node name="DropOff" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 567, 208 )
+scale = Vector2( 0.48, 0.48 )
+item_id = 1
+
+[node name="DropOff2" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 559, 368 )
+scale = Vector2( 0.48, 0.48 )
 
 [connection signal="Move_detected" from="HUD" to="Player" method="_on_HUD_Move_detected"]

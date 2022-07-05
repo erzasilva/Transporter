@@ -3,6 +3,11 @@ extends CanvasLayer
 #onready vars
 onready var TouchJoyStick = $OuterRing
 onready var TouchIndicator = $InnerRing
+onready var HBContainer = $NinePatchRect/HealthBarContainer
+
+#prefabs
+var HBListing = preload("res://UI/ItemHealthHUD.tscn")
+
 
 #signals
 signal Move_detected
@@ -31,3 +36,19 @@ func _input(event):
 			move_vector = Vector2.ZERO
 			emit_signal("Move_detected", move_vector)
 			TouchIndicator.rect_position = TouchCenter - IndicatorOffset
+
+func inv_add(item_pos):
+	var temp = HBListing.instance()
+	temp.set_details(Tables.item_list[item_pos]["id"], Tables.item_list[item_pos]["name"], Tables.item_list[item_pos]["health"])
+	HBContainer.add_child(temp)
+	
+func inv_remove(id):
+	var children = HBContainer.get_children()
+	for child in children:
+		if child.item_id == id:
+			child.queue_free()
+	
+func inv_hit(damage):
+	var children = HBContainer.get_children()
+	for child in children:
+		child.update_health(damage)
