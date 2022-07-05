@@ -1,7 +1,9 @@
 extends Node
 
 var item_list = [
-	{"name" : "test", "id": 0, "health": 100, "exp": 100},
-	{"name" : "test2", "id": 1, "health": 50, "exp": 50},
-	{"name" : "test3", "id": 2, "health": 80, "exp": 50}
+	{"name" : "Parts", "id": 0, "health": 100, "exp": 100, "icon":"res://Assets/Items/gear.png" },
+	{"name" : "Tools", "id": 1, "health": 50, "exp": 50, "icon": "res://Assets/Items/wrench.png"},
+	{"name" : "Food", "id": 2, "health": 80, "exp": 50, "icon": "res://Assets/Items/shoppingCart.png"},
+	{"name" : "Meds", "id": 3, "health": 80, "exp": 50, "icon": "res://Assets/Items/plus.png"},
+	{"name" : "Meds", "id": 4, "health": 80, "exp": 50, "icon": "res://Assets/Items/plus.png"},
 	]

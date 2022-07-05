@@ -16,35 +16,35 @@ collision_layer = 2
 format = 1
 tile_data = PoolIntArray( 0, 13, 0, 1, 2, 0, 2, 6, 0, 3, 2, 0, 4, 14, 0, 5, 7, 0, 6, 33, 0, 7, 22, 0, 8, 26, 0, 9, 22, 0, 10, 34, 0, 65536, 1, 0, 65537, 0, 0, 65538, 3, 0, 65539, 2, 0, 65540, 12, 0, 65541, 27, 0, 65542, 32, 0, 65543, 22, 0, 65544, 24, 0, 65545, 20, 0, 65546, 21, 0, 131072, 1, 0, 131073, 0, 0, 131074, 1, 0, 131075, 10, 0, 131076, 3, 0, 131077, 29, 0, 131078, 24, 0, 131079, 20, 0, 131080, 21, 0, 131081, 20, 0, 131082, 21, 0, 196608, 15, 0, 196609, 2, 0, 196610, 5, 0, 196611, 2, 0, 196612, 16, 0, 196613, 7, 0, 196614, 35, 0, 196615, 22, 0, 196616, 25, 0, 196617, 22, 0, 196618, 36, 0 )
 
+[node name="PnDs" type="Node2D" parent="."]
+
+[node name="Pickup" parent="PnDs" instance=ExtResource( 5 )]
+position = Vector2( 60, 182 )
+scale = Vector2( 0.48, 0.48 )
+
+[node name="Pickup2" parent="PnDs" instance=ExtResource( 5 )]
+position = Vector2( 62, 366 )
+scale = Vector2( 0.48, 0.48 )
+item_id = 1
+
+[node name="Pickup3" parent="PnDs" instance=ExtResource( 5 )]
+position = Vector2( 276, 451 )
+scale = Vector2( 0.48, 0.48 )
+item_id = 2
+
+[node name="DropOff" parent="PnDs" instance=ExtResource( 6 )]
+position = Vector2( 1342, 142 )
+scale = Vector2( 0.48, 0.48 )
+item_id = 1
+
+[node name="DropOff2" parent="PnDs" instance=ExtResource( 6 )]
+position = Vector2( 1333, 420 )
+scale = Vector2( 0.48, 0.48 )
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
 collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Pickup" parent="Node2D" instance=ExtResource( 5 )]
-position = Vector2( 60, 182 )
-scale = Vector2( 0.48, 0.48 )
-
-[node name="Pickup2" parent="Node2D" instance=ExtResource( 5 )]
-position = Vector2( 62, 366 )
-scale = Vector2( 0.48, 0.48 )
-item_id = 1
-
-[node name="Pickup3" parent="Node2D" instance=ExtResource( 5 )]
-position = Vector2( 276, 447 )
-scale = Vector2( 0.48, 0.48 )
-item_id = 2
-
-[node name="DropOff" parent="Node2D" instance=ExtResource( 6 )]
-position = Vector2( 567, 208 )
-scale = Vector2( 0.48, 0.48 )
-item_id = 1
-
-[node name="DropOff2" parent="Node2D" instance=ExtResource( 6 )]
-position = Vector2( 559, 368 )
-scale = Vector2( 0.48, 0.48 )
 
 [connection signal="Move_detected" from="HUD" to="Player" method="_on_HUD_Move_detected"]

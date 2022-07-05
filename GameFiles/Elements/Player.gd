@@ -9,7 +9,7 @@ var inventory_open_slots = 2
 
 
 #main Variables
-var inventory = [{"id": -1, "health": -1}, {"id": -1, "health": -1}, {"id": -1, "health": -1}, {"id": -1, "health": -1}, {"id": -1, "health": -1}]
+var inventory = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,17 +33,14 @@ func _on_HUD_Move_detected(move_vector):
 
 #inventory functions
 func inv_add(id, health):
-	var counter = 0
-	for item in inventory:
-		if inventory[counter]["id"] == -1:
-			inventory[counter]["id"] = id
-			inventory[counter]["health"] = health
-			get_tree().call_group("HUD", "inv_add", id)
-			return true
-		counter += 1
-		if counter >= inventory_open_slots:
-			return false
-
+	if inventory.size() < inventory_open_slots:
+		var temp = {}
+		temp["id"] = id
+		temp["health"] = health
+		inventory.append(temp)
+		get_tree().call_group("HUD", "inv_add", id)
+		return true
+	return false
 func inv_remove(id):
 	var counter = 0
 	var result = false
@@ -52,11 +49,8 @@ func inv_remove(id):
 			result = true
 			break
 		counter += 1
-		if counter >= inventory_open_slots:
-			break
 	if result:
-		inventory[counter]["id"] = -1
-		inventory[counter]["health"] = -1
+		inventory.remove(counter)
 		get_tree().call_group("HUD", "inv_remove", counter)
 	return result
 	
@@ -68,6 +62,5 @@ func inv_hit(damage):
 		else:
 			inv_remove(inventory[counter]["id"])
 		counter += 1
-		if counter >= inventory_open_slots:
-			break
+		
 	get_tree().call_group("HUD","inv_hit", damage)

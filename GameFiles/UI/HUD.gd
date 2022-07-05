@@ -45,8 +45,10 @@ func inv_add(item_pos):
 func inv_remove(id):
 	var children = HBContainer.get_children()
 	for child in children:
+		print(str(child.item_id) +  " " + str(id))
 		if child.item_id == id:
 			child.queue_free()
+			return
 	
 func inv_hit(damage):
 	var children = HBContainer.get_children()
