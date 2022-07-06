@@ -15,6 +15,7 @@ script = ExtResource( 4 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.5, 0.5 )
+smoothing_enabled = true
 
 [node name="Shadow" type="Sprite" parent="."]
 visible = false
@@ -33,4 +34,9 @@ shape = SubResource( 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
 
+[node name="MiniMap" parent="HUD" index="4"]
+player = NodePath("../..")
+
 [connection signal="Move_detected" from="HUD" to="." method="_on_HUD_Move_detected"]
+
+[editable path="HUD"]
