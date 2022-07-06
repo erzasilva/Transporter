@@ -8,6 +8,7 @@
 radius = 122.004
 
 [node name="DropOff" type="Node2D"]
+scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]

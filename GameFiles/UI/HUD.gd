@@ -3,11 +3,11 @@ extends CanvasLayer
 #onready vars
 onready var TouchJoyStick = $OuterRing
 onready var TouchIndicator = $InnerRing
-onready var HBContainer = $NinePatchRect/HealthBarContainer
+onready var HBContainer = $HB_BG/HealthBarContainer
 
 #prefabs
 var HBListing = preload("res://UI/ItemHealthHUD.tscn")
-
+var Player
 
 #signals
 signal Move_detected
@@ -19,6 +19,7 @@ var TouchCenter
 var IndicatorOffset = Vector2(36, 36)
 
 func _ready():
+	Player = get_tree().get_root().find_node("Player", true,false)
 	TouchCenter = TouchJoyStick.position + Vector2(80, 80)
 	TouchIndicator.rect_position = TouchCenter - IndicatorOffset
 	
@@ -37,20 +38,23 @@ func _input(event):
 			emit_signal("Move_detected", move_vector)
 			TouchIndicator.rect_position = TouchCenter - IndicatorOffset
 
-func inv_add(item_pos):
+func inv_add(id, cur_health):
 	var temp = HBListing.instance()
-	temp.set_details(Tables.item_list[item_pos]["id"], Tables.item_list[item_pos]["name"], Tables.item_list[item_pos]["health"])
+	temp.set_details(id, Tables.item_list[id]["name"], Tables.item_list[id]["health"], cur_health)
 	HBContainer.add_child(temp)
-	
-func inv_remove(id):
-	var children = HBContainer.get_children()
+		
+func update_HB():
+	for child in HBContainer.get_children():
+		child.queue_free()
+	for item in Player.inventory:
+		inv_add(item["id"], item["health"])
+
+func update_slots(pickup_list):
+	var children = $Consume_BG/InvContainer.get_children()
+	var counter = 0
 	for child in children:
-		print(str(child.item_id) +  " " + str(id))
-		if child.item_id == id:
-			child.queue_free()
-			return
-	
-func inv_hit(damage):
-	var children = HBContainer.get_children()
-	for child in children:
-		child.update_health(damage)
+		if pickup_list[counter] == -1:
+			child.deassign_slot()
+		else:
+			child.assign_slot(pickup_list[counter])
+		counter+=1
