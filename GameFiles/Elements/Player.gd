@@ -108,14 +108,22 @@ func change_speed_modifier(new_val):
 func use_consume(health_c, damage_c, speed_c, slot_location):
 	add_health(health_c)
 	change_speed_modifier(speed_c)
+	if speed_c > 0:
+		$SpeedTimer.start(7)
 	pickups[slot_location] = -1
-	can_take_damage = false
-	HUD.change_sheild(false)
-	$SheildTimer.start(5)
+	can_take_damage = damage_c
+	HUD.change_sheild(damage_c)
+	if not damage_c:
+		$ShieldTimer.start(5)
 	HUD.update_slots(pickups)
 
 
 func _on_SheildTimer_timeout():
-	$SheildTimer.stop()
+	$ShieldTimer.stop()
 	can_take_damage = true
 	HUD.change_sheild(true)
+
+
+func _on_SpeedTimer_timeout():
+	$SpeedTimer.stop()
+	speed_modifier = Tables.cars_list[PlayerStats.current_player_car]["speed"]

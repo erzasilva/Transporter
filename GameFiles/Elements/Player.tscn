@@ -37,10 +37,14 @@ shape = SubResource( 1 )
 [node name="MiniMap" parent="HUD" index="4"]
 player = NodePath("../..")
 
-[node name="SheildTimer" type="Timer" parent="."]
+[node name="SpeedTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="ShieldTimer" type="Timer" parent="."]
 wait_time = 3.0
 
 [connection signal="Move_detected" from="HUD" to="." method="_on_HUD_Move_detected"]
-[connection signal="timeout" from="SheildTimer" to="." method="_on_SheildTimer_timeout"]
+[connection signal="timeout" from="SpeedTimer" to="." method="_on_SpeedTimer_timeout"]
+[connection signal="timeout" from="ShieldTimer" to="." method="_on_SheildTimer_timeout"]
 
 [editable path="HUD"]
