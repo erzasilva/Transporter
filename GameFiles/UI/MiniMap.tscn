@@ -45,12 +45,14 @@ texture = ExtResource( 3 )
 
 [node name="PickupMarker" type="Sprite" parent="MarginContainer/BG"]
 visible = false
+self_modulate = Color( 1, 0.937255, 0, 1 )
 position = Vector2( 89, 53 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 6 )
 
 [node name="DropMarker" type="Sprite" parent="MarginContainer/BG"]
 visible = false
+modulate = Color( 0, 1, 0.0156863, 1 )
 position = Vector2( 91, 86 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 5 )

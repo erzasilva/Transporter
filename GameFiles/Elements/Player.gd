@@ -6,7 +6,7 @@ onready var HUD = $HUD
 
 #stats
 var speed = 200
-var inventory_open_slots = 2
+var inventory_open_slots = 6
 var speed_modifier = 0
 
 
@@ -26,6 +26,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(_delta):
+# warning-ignore:return_value_discarded
 	move_and_slide((move_dir * (speed + speed_modifier)))
 	if Input.is_action_just_pressed("tester"):
 		inv_hit(81)

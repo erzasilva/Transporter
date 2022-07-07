@@ -1,7 +1,7 @@
 extends MarginContainer
 
 export (NodePath) var player
-var zoom = 1.5
+var zoom = 1.25
 
 onready var BG = $MarginContainer/BG
 onready var player_m = $MarginContainer/BG/PlayerMarker
@@ -28,7 +28,7 @@ func obj_deleted(item):
 	markers[item].queue_free()
 	markers.erase(item)
 	
-func _process(delta):
+func _process(_delta):
 	if !player:
 		return
 	player_m.rotation = get_node(player).rotation

@@ -1,9 +1,10 @@
-extends HBoxContainer
+extends VBoxContainer
 var item_id
 var item_health
 func set_details(id, item_name, max_health, health):
 	item_id = id
-	$ItemName.text = item_name
+	print(Tables.item_list[id]["icon"])
+	$MarginContainer/ItemIcon.texture = load(Tables.item_list[id]["icon"])
 	item_health = health
 	$ProgressBar.max_value = max_health
 	$ProgressBar.value = health

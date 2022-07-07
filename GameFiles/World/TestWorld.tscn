@@ -28,6 +28,18 @@ item_id = 1
 position = Vector2( 276, 451 )
 item_id = 2
 
+[node name="Pickup4" parent="PnDs" instance=ExtResource( 5 )]
+position = Vector2( 510, 440 )
+item_id = 2
+
+[node name="Pickup5" parent="PnDs" instance=ExtResource( 5 )]
+position = Vector2( 580, 308 )
+item_id = 2
+
+[node name="Pickup6" parent="PnDs" instance=ExtResource( 5 )]
+position = Vector2( 569, 86 )
+item_id = 2
+
 [node name="DropOff" parent="PnDs" instance=ExtResource( 6 )]
 position = Vector2( 1342, 142 )
 item_id = 1
