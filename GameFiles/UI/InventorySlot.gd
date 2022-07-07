@@ -19,7 +19,7 @@ func deassign_slot():
 
 func _on_InventoryButton_pressed():
 	var h = Tables.consume_list[pickup_id]["health"]
-	var t = Tables.consume_list[pickup_id]["time"]
+	var d = Tables.consume_list[pickup_id]["damage"]
 	var s = Tables.consume_list[pickup_id]["speed"]
-	get_tree().call_group("ConsumeEffect", "use_consume", h, t, s, slot_location)
+	get_tree().call_group("ConsumeEffect", "use_consume", h, d, s, slot_location)
 	deassign_slot()

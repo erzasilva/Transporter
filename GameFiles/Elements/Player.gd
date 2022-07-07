@@ -8,6 +8,7 @@ onready var HUD = $HUD
 var speed = 200
 var inventory_open_slots = 6
 var speed_modifier = 0
+var can_take_damage = true
 
 
 
@@ -23,11 +24,13 @@ var pickups = [-1, -1, -1]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	speed_modifier = Tables.cars_list[PlayerStats.current_player_car]["speed"]
+	inventory_open_slots = Tables.cars_list[PlayerStats.current_player_car]["slots"]
+	$Body.texture = load(Tables.cars_list[PlayerStats.current_player_car]["icon"])
 
 func _physics_process(_delta):
 # warning-ignore:return_value_discarded
-	move_and_slide((move_dir * (speed + speed_modifier)))
+	move_and_slide((move_dir * (speed * speed_modifier)))
 	if Input.is_action_just_pressed("tester"):
 		inv_hit(81)
 	
@@ -69,16 +72,15 @@ func inv_delivered(id):
 	return result
 	
 func inv_hit(damage):
-	var counter = 0
-	while counter < inventory.size():
-		if inventory[counter]["health"] > damage:
-			inventory[counter]["health"] -= damage
-			counter+= 1
-		else:
-			inventory.remove(counter)
-			
-			
-	HUD.update_HB()
+	if can_take_damage:	
+		var counter = 0
+		while counter < inventory.size():
+			if inventory[counter]["health"] > damage:
+				inventory[counter]["health"] -= damage
+				counter+= 1
+			else:
+				inventory.remove(counter)
+		HUD.update_HB()
 
 func add_health(inc_health):
 	for item in inventory:
@@ -100,11 +102,20 @@ func pick_consume(pickup_id):
 
 #modifiers
 func change_speed_modifier(new_val):
-	speed_modifier = new_val
+	speed_modifier += new_val
 
 
-func use_consume(health_c, _time_c, speed_c, slot_location):
+func use_consume(health_c, damage_c, speed_c, slot_location):
 	add_health(health_c)
 	change_speed_modifier(speed_c)
 	pickups[slot_location] = -1
+	can_take_damage = false
+	HUD.change_sheild(false)
+	$SheildTimer.start(5)
 	HUD.update_slots(pickups)
+
+
+func _on_SheildTimer_timeout():
+	$SheildTimer.stop()
+	can_take_damage = true
+	HUD.change_sheild(true)

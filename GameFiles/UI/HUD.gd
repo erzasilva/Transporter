@@ -4,6 +4,8 @@ extends CanvasLayer
 onready var TouchJoyStick = $OuterRing
 onready var TouchIndicator = $InnerRing
 onready var HBContainer = $HB_BG/HealthBarContainer
+onready var ShieldStatus = $HB_BG/ShieldStatus
+
 
 #prefabs
 var HBListing = preload("res://UI/ItemHealthHUD.tscn")
@@ -17,11 +19,14 @@ var move_vector = Vector2.ZERO
 var joystick_active = false
 var TouchCenter
 var IndicatorOffset = Vector2(36, 36)
+var Shield_on = "Shields: [color=green]ON[/color]"
+var Shield_off = "Shields: [color=red]OFF[/color]"
 
 func _ready():
 	Player = get_tree().get_root().find_node("Player", true,false)
 	TouchCenter = TouchJoyStick.position + Vector2(80, 80)
 	TouchIndicator.rect_position = TouchCenter - IndicatorOffset
+	change_sheild(true)
 	
 	
 func _input(event):
@@ -58,3 +63,9 @@ func update_slots(pickup_list):
 		else:
 			child.assign_slot(pickup_list[counter])
 		counter+=1
+
+func change_sheild(val):
+	if val:
+		ShieldStatus.bbcode_text = Shield_off
+	else:
+		ShieldStatus.bbcode_text = Shield_on
