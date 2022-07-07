@@ -1,0 +1,156 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Custom/19143294.jpg" type="Texture" id=1]
+[ext_resource path="res://Assets/Custom/complete-dialouge-box.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/Fonts/kenvector_future.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/RacePack/car_5.png" type="Texture" id=4]
+[ext_resource path="res://UI/CarSelection.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Custom/arrowRight_p.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Custom/arrowRight.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Custom/arrowLeft_p.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Custom/arrowLeft.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Custom/button-3.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Items/locked.png" type="Texture" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 3 )
+
+[node name="CarSelection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+script = ExtResource( 5 )
+
+[node name="BG" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.286275 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="BGMargin" type="MarginContainer" parent="BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+
+[node name="ElementContainer" type="VBoxContainer" parent="BG/BGMargin"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 1250.0
+margin_bottom = 717.0
+
+[node name="Title" type="Label" parent="BG/BGMargin/ElementContainer"]
+margin_right = 1220.0
+margin_bottom = 45.0
+text = "Select your Delivery Vehicle"
+align = 1
+valign = 1
+
+[node name="SelectorMargin" type="MarginContainer" parent="BG/BGMargin/ElementContainer"]
+margin_top = 49.0
+margin_right = 1220.0
+margin_bottom = 549.0
+rect_min_size = Vector2( 1220, 500 )
+custom_constants/margin_right = 80
+custom_constants/margin_top = 30
+custom_constants/margin_left = 80
+custom_constants/margin_bottom = 30
+
+[node name="CarSprite" type="Sprite" parent="BG/BGMargin/ElementContainer/SelectorMargin"]
+position = Vector2( 285, 246 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="Locked" type="Sprite" parent="BG/BGMargin/ElementContainer/SelectorMargin"]
+visible = false
+position = Vector2( 402, 348 )
+texture = ExtResource( 11 )
+
+[node name="InfoContainer" type="MarginContainer" parent="BG/BGMargin/ElementContainer/SelectorMargin"]
+margin_left = 80.0
+margin_top = 30.0
+margin_right = 1140.0
+margin_bottom = 470.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 30
+custom_constants/margin_left = 420
+custom_constants/margin_bottom = 30
+
+[node name="InfoBox" type="Label" parent="BG/BGMargin/ElementContainer/SelectorMargin/InfoContainer"]
+margin_left = 420.0
+margin_top = 197.0
+margin_right = 1020.0
+margin_bottom = 242.0
+text = "Hello\\nthis is me"
+
+[node name="PostProcess" type="TextureRect" parent="BG/BGMargin/ElementContainer/SelectorMargin"]
+margin_left = 80.0
+margin_top = 30.0
+margin_right = 1140.0
+margin_bottom = 470.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="ButtonContainer" type="HBoxContainer" parent="BG/BGMargin/ElementContainer"]
+margin_top = 553.0
+margin_right = 1220.0
+margin_bottom = 603.0
+rect_min_size = Vector2( 1220, 50 )
+custom_constants/separation = 30
+alignment = 1
+
+[node name="Left" type="TextureButton" parent="BG/BGMargin/ElementContainer/ButtonContainer"]
+margin_left = 545.0
+margin_right = 595.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+expand = true
+
+[node name="Right" type="TextureButton" parent="BG/BGMargin/ElementContainer/ButtonContainer"]
+margin_left = 625.0
+margin_right = 675.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 6 )
+expand = true
+
+[node name="OkContainer" type="MarginContainer" parent="BG/BGMargin/ElementContainer"]
+margin_top = 607.0
+margin_right = 1220.0
+margin_bottom = 687.0
+rect_min_size = Vector2( 1220, 80 )
+custom_constants/margin_right = 500
+custom_constants/margin_left = 500
+
+[node name="Ok Button" type="TextureButton" parent="BG/BGMargin/ElementContainer/OkContainer"]
+margin_left = 500.0
+margin_right = 720.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 100, 50 )
+texture_normal = ExtResource( 10 )
+expand = true
+
+[node name="Label" type="Label" parent="BG/BGMargin/ElementContainer/OkContainer/Ok Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+text = "Go!!"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="BG/BGMargin/ElementContainer/ButtonContainer/Left" to="." method="_on_Left_pressed"]
+[connection signal="pressed" from="BG/BGMargin/ElementContainer/ButtonContainer/Right" to="." method="_on_Right_pressed"]

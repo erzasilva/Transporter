@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Tables="*res://Elements/Tables.gd"
+PlayerStats="*res://Elements/PlayerStats.gd"
 
 [display]
 
