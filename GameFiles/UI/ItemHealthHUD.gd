@@ -1,7 +1,7 @@
 extends VBoxContainer
 var item_id
 var item_health
-func set_details(id, item_name, max_health, health):
+func set_details(id, _item_name, max_health, health):
 	item_id = id
 	$MarginContainer/ItemIcon.texture = load(Tables.item_list[id]["icon"])
 	item_health = health

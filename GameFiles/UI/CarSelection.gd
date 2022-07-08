@@ -51,6 +51,7 @@ func _on_Okay_pressed():
 	PlayerStats.player_garage[current] = true
 	update_screen()
 	Confirm_popup.hide()
+	PlayerStats.save_game()
 
 
 func _on_Cancel_pressed():
@@ -59,4 +60,5 @@ func _on_Cancel_pressed():
 
 func _on_OkButton_pressed():
 	PlayerStats.current_player_car = current
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://World/TestWorld.tscn")
