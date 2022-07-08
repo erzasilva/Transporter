@@ -7,6 +7,7 @@ var minimap_icon = "dropoff"
 
 func _ready():
 	$Icon.texture = load(Tables.item_list[item_id]["icon"])
+	get_tree().call_group("minimap", "add_marker", self)
 
 func _process(_delta):
 	get_tree().call_group("minimap", "update_marker", self)

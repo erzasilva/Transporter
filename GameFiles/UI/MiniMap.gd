@@ -17,13 +17,13 @@ var markers = {}
 func _ready():
 	player_m.position = BG.rect_size / 2
 	gridscale = BG.rect_size / (get_viewport_rect().size * zoom)
-	var map_objects = get_tree().get_nodes_in_group("minimap_objects")
-	for item in map_objects:
-		var new_marker = icons[item.minimap_icon].duplicate()
-		BG.add_child(new_marker)
-		new_marker.show()
-		markers[item] = new_marker
-		
+#	var map_objects = get_tree().get_nodes_in_group("minimap_objects")
+#	for item in map_objects:
+#		var new_marker = icons[item.minimap_icon].duplicate()
+#		BG.add_child(new_marker)
+#		new_marker.show()
+#		markers[item] = new_marker
+#
 func obj_deleted(item):
 	markers[item].queue_free()
 	markers.erase(item)
@@ -33,7 +33,13 @@ func _process(_delta):
 		return
 	player_m.rotation = get_node(player).rotation
 
+func add_marker(key):
+	var new_marker = icons[key.minimap_icon].duplicate()
+	BG.add_child(new_marker)
+	new_marker.show()
+	markers[key] = new_marker
 		
+
 func update_marker(item):
 	var obj_pos = (item.position - get_node(player).position) * gridscale + BG.rect_size / 2
 	var direction_vec = (obj_pos - (BG.rect_size  / 2)).normalized()

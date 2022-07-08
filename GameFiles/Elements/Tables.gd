@@ -1,5 +1,8 @@
 extends Node
 
+
+
+
 var item_list = [
 	{"name" : "Parts", "id": 0, "health": 100, "exp": 100, "icon":"res://Assets/Items/gear.png" },
 	{"name" : "Tools", "id": 1, "health": 50, "exp": 50, "icon": "res://Assets/Items/wrench.png"},
@@ -21,3 +24,13 @@ var cars_list = [
 	{"name": "Sports", "icon": "res://Assets/RacePack/car_2.png", "slots": 2, "speed": 2, "cost": 2500},
 	{"name": "Truck", "icon": "res://Assets/RacePack/car_4.png", "slots": 6, "speed": 1.5, "cost": 4500},
 ]
+
+var levelData = {
+	"Test" : {
+		"0" : {
+		"p" : [2, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+		"d" : [-1, 2, -1, -1, -1, -1, -1, -1, -1, -1],
+		"c" : [1, -1, -1, -1, -1],
+		}
+	}
+}

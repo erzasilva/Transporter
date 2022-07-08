@@ -43,7 +43,6 @@ func _on_Right_pressed():
 
 
 func _on_BuyButton_pressed():
-	print("Hello")
 	Confirm_popup.popup_centered()
 
 

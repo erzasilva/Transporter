@@ -94,7 +94,6 @@ func pick_consume(pickup_id):
 	for slot in pickups:
 		if slot == -1:
 			pickups[counter] = pickup_id
-			print(pickups)
 			HUD.update_slots(pickups)
 			return true
 		counter+= 1

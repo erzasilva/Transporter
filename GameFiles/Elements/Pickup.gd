@@ -8,7 +8,7 @@ var minimap_icon = "pickup"
 
 func _ready():
 	set_details()
-	
+	get_tree().call_group("minimap", "add_marker", self)
 func _process(_delta):
 	get_tree().call_group("minimap", "update_marker", self)
 

@@ -1,12 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://World/Tilesets/TankTerrain.tres" type="TileSet" id=1]
+[ext_resource path="res://World/TestWorld.gd" type="Script" id=2]
 [ext_resource path="res://Elements/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Elements/Pickup.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Elements/DropOff.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Elements/Consumes.tscn" type="PackedScene" id=7]
 
 [node name="TestWorld" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Route" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -17,41 +16,36 @@ tile_data = PoolIntArray( 0, 13, 0, 1, 2, 0, 2, 6, 0, 3, 2, 0, 4, 14, 0, 5, 7, 0
 
 [node name="PnDs" type="Node2D" parent="."]
 
-[node name="Pickup" parent="PnDs" instance=ExtResource( 5 )]
-position = Vector2( 60, 182 )
-
-[node name="Pickup2" parent="PnDs" instance=ExtResource( 5 )]
-position = Vector2( 62, 366 )
-item_id = 1
-
-[node name="Pickup3" parent="PnDs" instance=ExtResource( 5 )]
-position = Vector2( 276, 451 )
-item_id = 2
-
-[node name="Pickup4" parent="PnDs" instance=ExtResource( 5 )]
-position = Vector2( 510, 440 )
-item_id = 2
-
-[node name="Pickup5" parent="PnDs" instance=ExtResource( 5 )]
-position = Vector2( 580, 308 )
-item_id = 2
-
-[node name="Pickup6" parent="PnDs" instance=ExtResource( 5 )]
-position = Vector2( 569, 86 )
-item_id = 2
-
-[node name="DropOff" parent="PnDs" instance=ExtResource( 6 )]
-position = Vector2( 1342, 142 )
-item_id = 1
-
-[node name="DropOff2" parent="PnDs" instance=ExtResource( 6 )]
-position = Vector2( 1333, 420 )
-
 [node name="Consumes" type="Node2D" parent="."]
-
-[node name="Consumes" parent="Consumes" instance=ExtResource( 7 )]
-position = Vector2( 576, 190 )
-pickup_id = 1
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 collision_mask = 2
+
+[node name="PickupWaypoints" type="Node2D" parent="."]
+
+[node name="pos0" type="Position2D" parent="PickupWaypoints"]
+position = Vector2( 326, 282 )
+
+[node name="pos1" type="Position2D" parent="PickupWaypoints"]
+position = Vector2( 326, 282 )
+
+[node name="pos2" type="Position2D" parent="PickupWaypoints"]
+position = Vector2( 326, 282 )
+
+[node name="DropoffWaypoints" type="Node2D" parent="."]
+
+[node name="pos0" type="Position2D" parent="DropoffWaypoints"]
+
+[node name="pos1" type="Position2D" parent="DropoffWaypoints"]
+position = Vector2( 1079, 205 )
+
+[node name="pos2" type="Position2D" parent="DropoffWaypoints"]
+
+[node name="ConsumeWaypoints" type="Node2D" parent="."]
+
+[node name="pos0" type="Position2D" parent="ConsumeWaypoints"]
+position = Vector2( 569, 179 )
+
+[node name="pos1" type="Position2D" parent="ConsumeWaypoints"]
+
+[node name="pos2" type="Position2D" parent="ConsumeWaypoints"]
