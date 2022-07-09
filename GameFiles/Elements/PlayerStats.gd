@@ -3,6 +3,7 @@ extends Node
 var current_player_car = 0
 var player_money = 500
 var player_garage = [true, false, false, false, false]
+var player_maps = ["Map1"]
 var last_completed_class = ""
 var last_completed_level = 0
 var current_running_class = "Test"
@@ -16,6 +17,7 @@ func save_game():
 	var save_data = {}
 	save_data["money"] = player_money
 	save_data["garage"] = player_garage
+	save_data["maps"] = player_maps
 	save_data["class"] = last_completed_class
 	save_data["level"] = last_completed_level
 	
@@ -31,7 +33,7 @@ func load_game():
 		var save_data = parse_json(save_file.get_line())
 		save_file.close()
 		player_money = save_data["money"]
-		player_garage = save_data["garage"]
+		player_maps = save_data["maps"]
 		last_completed_class = save_data["class"]
 		last_completed_level = save_data["level"]
 		

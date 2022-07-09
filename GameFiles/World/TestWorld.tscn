@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://World/Tilesets/TankTerrain.tres" type="TileSet" id=1]
 [ext_resource path="res://World/TestWorld.gd" type="Script" id=2]
 [ext_resource path="res://Elements/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Elements/NPC_Turret.tscn" type="PackedScene" id=4]
 
-[node name="TestWorld" type="Node2D"]
+[node name="World" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Route" type="TileMap" parent="."]
@@ -13,6 +14,10 @@ cell_size = Vector2( 128, 128 )
 collision_layer = 2
 format = 1
 tile_data = PoolIntArray( 0, 13, 0, 1, 2, 0, 2, 6, 0, 3, 2, 0, 4, 14, 0, 5, 7, 0, 6, 33, 0, 7, 22, 0, 8, 26, 0, 9, 22, 0, 10, 34, 0, 65536, 1, 0, 65537, 0, 0, 65538, 3, 0, 65539, 2, 0, 65540, 12, 0, 65541, 27, 0, 65542, 32, 0, 65543, 22, 0, 65544, 24, 0, 65545, 20, 0, 65546, 21, 0, 131072, 1, 0, 131073, 0, 0, 131074, 1, 0, 131075, 10, 0, 131076, 3, 0, 131077, 29, 0, 131078, 24, 0, 131079, 20, 0, 131080, 21, 0, 131081, 20, 0, 131082, 21, 0, 196608, 15, 0, 196609, 2, 0, 196610, 5, 0, 196611, 2, 0, 196612, 16, 0, 196613, 7, 0, 196614, 35, 0, 196615, 22, 0, 196616, 25, 0, 196617, 22, 0, 196618, 36, 0 )
+
+[node name="Env_Props" type="TileMap" parent="."]
+collision_layer = 2
+format = 1
 
 [node name="PnDs" type="Node2D" parent="."]
 
@@ -24,28 +29,68 @@ collision_mask = 2
 [node name="PickupWaypoints" type="Node2D" parent="."]
 
 [node name="pos0" type="Position2D" parent="PickupWaypoints"]
-position = Vector2( 326, 282 )
+position = Vector2( 326, 270 )
 
 [node name="pos1" type="Position2D" parent="PickupWaypoints"]
-position = Vector2( 326, 282 )
+position = Vector2( 656, 184 )
 
 [node name="pos2" type="Position2D" parent="PickupWaypoints"]
-position = Vector2( 326, 282 )
+
+[node name="pos3" type="Position2D" parent="PickupWaypoints"]
+
+[node name="pos4" type="Position2D" parent="PickupWaypoints"]
+
+[node name="pos5" type="Position2D" parent="PickupWaypoints"]
+
+[node name="pos6" type="Position2D" parent="PickupWaypoints"]
+
+[node name="pos7" type="Position2D" parent="PickupWaypoints"]
+
+[node name="pos8" type="Position2D" parent="PickupWaypoints"]
+
+[node name="pos9" type="Position2D" parent="PickupWaypoints"]
 
 [node name="DropoffWaypoints" type="Node2D" parent="."]
 
 [node name="pos0" type="Position2D" parent="DropoffWaypoints"]
+position = Vector2( 1038, 70 )
 
 [node name="pos1" type="Position2D" parent="DropoffWaypoints"]
-position = Vector2( 1079, 205 )
+position = Vector2( 1348, 281 )
 
 [node name="pos2" type="Position2D" parent="DropoffWaypoints"]
+position = Vector2( 1085, 348 )
+
+[node name="pos3" type="Position2D" parent="DropoffWaypoints"]
+
+[node name="pos4" type="Position2D" parent="DropoffWaypoints"]
+
+[node name="pos5" type="Position2D" parent="DropoffWaypoints"]
+
+[node name="pos6" type="Position2D" parent="DropoffWaypoints"]
+
+[node name="pos7" type="Position2D" parent="DropoffWaypoints"]
+
+[node name="pos8" type="Position2D" parent="DropoffWaypoints"]
+
+[node name="pos9" type="Position2D" parent="DropoffWaypoints"]
 
 [node name="ConsumeWaypoints" type="Node2D" parent="."]
 
 [node name="pos0" type="Position2D" parent="ConsumeWaypoints"]
-position = Vector2( 569, 179 )
+position = Vector2( 334, 183 )
 
 [node name="pos1" type="Position2D" parent="ConsumeWaypoints"]
 
 [node name="pos2" type="Position2D" parent="ConsumeWaypoints"]
+
+[node name="pos3" type="Position2D" parent="ConsumeWaypoints"]
+
+[node name="pos4" type="Position2D" parent="ConsumeWaypoints"]
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="NPC_Turret" parent="NPCs" instance=ExtResource( 4 )]
+position = Vector2( 552, -420 )
+
+[node name="ProjectileLayer" type="Node" parent="."]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://World/TestWorld.tscn" type="PackedScene" id=1]
+
+[node name="Map1World" instance=ExtResource( 1 )]
+level_class = "Map1"
+
+[node name="pos3" parent="DropoffWaypoints" index="3"]
+position = Vector2( 315, 79 )

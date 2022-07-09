@@ -1,7 +1,7 @@
 extends Node2D
 
 #main variables
-var level_class = "Test"
+export var level_class = "Test"
 var level_id = 0
 var level_data = {}
 
@@ -53,6 +53,7 @@ func setup_level():
 			cnt+= 1
 			continue
 		else:
+			print("Hello" + str(cnt))
 			var waypoint = ConsumeP.get_child(cnt)
 			var temp = consume_f.instance()
 			temp.pickup_id = i

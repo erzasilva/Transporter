@@ -1,6 +1,6 @@
 extends Node2D
 
-export var pickup_id = 0
+export var pickup_id = -1
 
 
 func _on_Area2D_body_entered(body):
