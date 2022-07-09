@@ -11,7 +11,6 @@ var current_running_level = 0
 
 func _ready():
 	load_game()
-	print(player_garage)
 
 func save_game():
 	var save_data = {}
@@ -33,7 +32,6 @@ func load_game():
 		save_file.close()
 		player_money = save_data["money"]
 		player_garage = save_data["garage"]
-		print(player_garage)
 		last_completed_class = save_data["class"]
 		last_completed_level = save_data["level"]
 		
