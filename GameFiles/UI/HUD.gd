@@ -21,6 +21,7 @@ var TouchCenter
 var IndicatorOffset = Vector2(36, 36)
 var Shield_on = "Shields: [color=green]ON[/color]"
 var Shield_off = "Shields: [color=red]OFF[/color]"
+var is_paused = false
 
 func _ready():
 	Player = get_tree().get_root().find_node("Player", true,false)
@@ -69,3 +70,9 @@ func change_sheild(val):
 		ShieldStatus.bbcode_text = Shield_off
 	else:
 		ShieldStatus.bbcode_text = Shield_on
+
+
+func _on_MenuButton_pressed():
+	is_paused = true
+	get_tree().paused = is_paused
+	$PauseMenu.popup_centered()
