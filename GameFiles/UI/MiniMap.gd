@@ -7,8 +7,9 @@ onready var BG = $MarginContainer/BG
 onready var player_m = $MarginContainer/BG/PlayerMarker
 onready var pickup_m = $MarginContainer/BG/PickupMarker
 onready var dropoff_m = $MarginContainer/BG/DropMarker
+onready var npc_m = $MarginContainer/BG/NPCMarker
 
-onready var icons = {"pickup": pickup_m, "dropoff": dropoff_m}
+onready var icons = {"pickup": pickup_m, "dropoff": dropoff_m, "npc": npc_m}
 
 var gridscale
 var markers = {}
@@ -17,12 +18,7 @@ var markers = {}
 func _ready():
 	player_m.position = BG.rect_size / 2
 	gridscale = BG.rect_size / (get_viewport_rect().size * zoom)
-#	var map_objects = get_tree().get_nodes_in_group("minimap_objects")
-#	for item in map_objects:
-#		var new_marker = icons[item.minimap_icon].duplicate()
-#		BG.add_child(new_marker)
-#		new_marker.show()
-#		markers[item] = new_marker
+#	
 #
 func obj_deleted(item):
 	markers[item].queue_free()

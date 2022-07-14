@@ -6,6 +6,7 @@ var player_detected = false
 var can_fire = false
 var bullet_speed = 5
 var fire_rate = 1
+var minimap_icon = "npc"
 
 onready var projectile = load("res://Elements/Projectile.tscn")
 
@@ -13,6 +14,7 @@ var ProjectileLayer
 
 func _ready():
 	ProjectileLayer = get_tree().get_root().find_node("ProjectileLayer", true, false)
+	get_tree().call_group("minimap", "add_marker", self)
 
 func _on_DetectionRadius_body_entered(body):
 	target = body
@@ -21,17 +23,18 @@ func _on_DetectionRadius_body_entered(body):
 	
 
 
-func _on_DetectionRadius_body_exited(body):
+func _on_DetectionRadius_body_exited(_body):
 	target = null
 	player_detected = false
 	can_fire = false
 	$ShotTimer.stop()
 	
-func _process(delta):
+func _process(_delta):
 	if player_detected:
 		look_at(target.position)
 	if can_fire:
 		fire()
+	get_tree().call_group("minimap", "update_marker", self)
 
 func fire():
 	var temp = projectile.instance()

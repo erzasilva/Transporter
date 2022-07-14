@@ -76,3 +76,7 @@ func _on_MenuButton_pressed():
 	is_paused = true
 	get_tree().paused = is_paused
 	$PauseMenu.popup_centered()
+
+func end_screen(val):
+	$LevelEnd.update_screen(val)
+	$LevelEnd.popup_centered()

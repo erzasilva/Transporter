@@ -1,0 +1,97 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/UI/Fonts/kenvector_future.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Custom/arrowLeft.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Custom/arrowRight.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Custom/arrowRight_p.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Custom/arrowLeft_p.png" type="Texture" id=5]
+[ext_resource path="res://UI/MapSelectionScreen.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Custom/19143294.jpg" type="Texture" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="Theme" id=6]
+HScrollBar/styles/grabber = SubResource( 1 )
+HScrollBar/styles/grabber_highlight = SubResource( 2 )
+HScrollBar/styles/grabber_pressed = SubResource( 3 )
+HScrollBar/styles/scroll = SubResource( 4 )
+HScrollBar/styles/scroll_focus = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 80
+font_data = ExtResource( 1 )
+
+[node name="MapSelectionScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 6 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.380392 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = -150.0
+margin_right = 125.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 250, 300 )
+scroll_vertical_enabled = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+margin_right = 758.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 758, 290 )
+
+[node name="Left" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -285.0
+margin_top = -58.0
+margin_right = -185.0
+margin_bottom = 42.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 2 )
+
+[node name="Right" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 185.0
+margin_top = -58.0
+margin_right = 285.0
+margin_bottom = 42.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 7 )
+text = "Map Selection"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="Left" to="." method="_on_Left_pressed"]
+[connection signal="pressed" from="Right" to="." method="_on_Right_pressed"]

@@ -21,6 +21,7 @@ var last_dir = Vector2.ZERO
 #main Variables
 var inventory = []
 var pickups = [-1, -1, -1]
+var exp_count: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,8 +51,8 @@ func inv_add(id, health):
 	if inventory.size() < inventory_open_slots:
 		var temp = {}
 		temp["id"] = id
-		temp["health"] = health
-		temp["max_health"] = health
+		temp["health"] = float(health)
+		temp["max_health"] = float(health)
 		inventory.append(temp)
 		HUD.update_HB()
 		return true
@@ -63,12 +64,14 @@ func inv_delivered(id):
 	var result = false
 	for item in inventory:
 		if inventory[counter]["id"] == id:
+			exp_count += float((inventory[counter]["health"]/inventory[counter]["max_health"]) * Tables.item_list[inventory[counter]["id"]]["exp"])
 			result = true
 			break
 		counter += 1
 	if result:
 		inventory.remove(counter)
 		HUD.update_HB()
+	get_tree().call_group("World", "check_end_state")
 	return result
 	
 func inv_hit(damage):
@@ -81,6 +84,7 @@ func inv_hit(damage):
 			else:
 				inventory.remove(counter)
 		HUD.update_HB()
+		get_tree().call_group("World", "check_end_state")
 
 func add_health(inc_health):
 	for item in inventory:

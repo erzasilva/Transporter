@@ -3,9 +3,9 @@
 [ext_resource path="res://World/Tilesets/TankTerrain.tres" type="TileSet" id=1]
 [ext_resource path="res://World/TestWorld.gd" type="Script" id=2]
 [ext_resource path="res://Elements/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Elements/NPC_Turret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/Tilesets/Props.tres" type="TileSet" id=4]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" groups=["World"]]
 script = ExtResource( 2 )
 
 [node name="Route" type="TileMap" parent="."]
@@ -13,26 +13,32 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 128 )
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 0, 13, 0, 1, 2, 0, 2, 6, 0, 3, 2, 0, 4, 14, 0, 5, 7, 0, 6, 33, 0, 7, 22, 0, 8, 26, 0, 9, 22, 0, 10, 34, 0, 65536, 1, 0, 65537, 0, 0, 65538, 3, 0, 65539, 2, 0, 65540, 12, 0, 65541, 27, 0, 65542, 32, 0, 65543, 22, 0, 65544, 24, 0, 65545, 20, 0, 65546, 21, 0, 131072, 1, 0, 131073, 0, 0, 131074, 1, 0, 131075, 10, 0, 131076, 3, 0, 131077, 29, 0, 131078, 24, 0, 131079, 20, 0, 131080, 21, 0, 131081, 20, 0, 131082, 21, 0, 196608, 15, 0, 196609, 2, 0, 196610, 5, 0, 196611, 2, 0, 196612, 16, 0, 196613, 7, 0, 196614, 35, 0, 196615, 22, 0, 196616, 25, 0, 196617, 22, 0, 196618, 36, 0 )
+tile_data = PoolIntArray( -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 7, 0, -262138, 20, 0, -262137, 20, 0, -262136, 20, 0, -262135, 20, 0, -262134, 20, 0, -262133, 20, 0, -262132, 20, 0, -262131, 20, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 7, 0, -196602, 20, 0, -196601, 20, 0, -196600, 20, 0, -196599, 20, 0, -196598, 20, 0, -196597, 20, 0, -196596, 20, 0, -196595, 20, 0, -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 7, 0, -131066, 20, 0, -131065, 20, 0, -131064, 20, 0, -131063, 20, 0, -131062, 20, 0, -131061, 20, 0, -131060, 20, 0, -131059, 20, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 7, 0, -65530, 20, 0, -65529, 20, 0, -65528, 20, 0, -65527, 20, 0, -65526, 20, 0, -65525, 20, 0, -65524, 20, 0, -65523, 20, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 13, 0, 1, 2, 0, 2, 6, 0, 3, 2, 0, 4, 14, 0, 5, 7, 0, 6, 33, 0, 7, 22, 0, 8, 26, 0, 9, 22, 0, 10, 34, 0, 11, 20, 0, 12, 20, 0, 13, 20, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 1, 0, 65537, 0, 0, 65538, 3, 0, 65539, 2, 0, 65540, 12, 0, 65541, 27, 0, 65542, 32, 0, 65543, 22, 0, 65544, 24, 0, 65545, 20, 0, 65546, 21, 0, 65547, 20, 0, 65548, 20, 0, 65549, 20, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 1, 0, 131073, 0, 0, 131074, 1, 0, 131075, 10, 0, 131076, 3, 0, 131077, 29, 0, 131078, 24, 0, 131079, 20, 0, 131080, 21, 0, 131081, 20, 0, 131082, 21, 0, 131083, 20, 0, 131084, 20, 0, 131085, 20, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 15, 0, 196609, 2, 0, 196610, 5, 0, 196611, 2, 0, 196612, 16, 0, 196613, 7, 0, 196614, 35, 0, 196615, 22, 0, 196616, 25, 0, 196617, 22, 0, 196618, 36, 0, 196619, 20, 0, 196620, 20, 0, 196621, 20, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 7, 0, 262150, 20, 0, 262151, 20, 0, 262152, 20, 0, 262153, 20, 0, 262154, 20, 0, 262155, 20, 0, 262156, 20, 0, 262157, 20, 0, 393213, 0, 0, 393214, 0, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 7, 0, 327686, 20, 0, 327687, 20, 0, 327688, 20, 0, 327689, 20, 0, 327690, 20, 0, 327691, 20, 0, 327692, 20, 0, 327693, 20, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 7, 0, 393222, 20, 0, 393223, 20, 0, 393224, 20, 0, 393225, 20, 0, 393226, 20, 0, 393227, 20, 0, 393228, 20, 0, 393229, 20, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 7, 0, 458758, 20, 0, 458759, 20, 0, 458760, 20, 0, 458761, 20, 0, 458762, 20, 0, 458763, 20, 0, 458764, 20, 0, 458765, 20, 0 )
 
 [node name="Env_Props" type="TileMap" parent="."]
-collision_layer = 2
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 128, 128 )
+cell_tile_origin = 1
+collision_layer = 8
 format = 1
 
-[node name="PnDs" type="Node2D" parent="."]
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="Dropoffs" type="Node2D" parent="."]
+
+[node name="NPCs" type="Node2D" parent="."]
 
 [node name="Consumes" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-collision_mask = 2
+position = Vector2( 102, 88 )
+collision_mask = 10
 
 [node name="PickupWaypoints" type="Node2D" parent="."]
 
 [node name="pos0" type="Position2D" parent="PickupWaypoints"]
-position = Vector2( 326, 270 )
 
 [node name="pos1" type="Position2D" parent="PickupWaypoints"]
-position = Vector2( 656, 184 )
 
 [node name="pos2" type="Position2D" parent="PickupWaypoints"]
 
@@ -53,13 +59,10 @@ position = Vector2( 656, 184 )
 [node name="DropoffWaypoints" type="Node2D" parent="."]
 
 [node name="pos0" type="Position2D" parent="DropoffWaypoints"]
-position = Vector2( 1038, 70 )
 
 [node name="pos1" type="Position2D" parent="DropoffWaypoints"]
-position = Vector2( 1348, 281 )
 
 [node name="pos2" type="Position2D" parent="DropoffWaypoints"]
-position = Vector2( 1085, 348 )
 
 [node name="pos3" type="Position2D" parent="DropoffWaypoints"]
 
@@ -78,7 +81,6 @@ position = Vector2( 1085, 348 )
 [node name="ConsumeWaypoints" type="Node2D" parent="."]
 
 [node name="pos0" type="Position2D" parent="ConsumeWaypoints"]
-position = Vector2( 334, 183 )
 
 [node name="pos1" type="Position2D" parent="ConsumeWaypoints"]
 
@@ -88,9 +90,16 @@ position = Vector2( 334, 183 )
 
 [node name="pos4" type="Position2D" parent="ConsumeWaypoints"]
 
-[node name="NPCs" type="Node2D" parent="."]
+[node name="NPCWaypoints" type="Node2D" parent="."]
 
-[node name="NPC_Turret" parent="NPCs" instance=ExtResource( 4 )]
-position = Vector2( 552, -420 )
+[node name="pos0" type="Position2D" parent="NPCWaypoints"]
+
+[node name="pos1" type="Position2D" parent="NPCWaypoints"]
+
+[node name="pos2" type="Position2D" parent="NPCWaypoints"]
+
+[node name="pos3" type="Position2D" parent="NPCWaypoints"]
+
+[node name="pos4" type="Position2D" parent="NPCWaypoints"]
 
 [node name="ProjectileLayer" type="Node" parent="."]

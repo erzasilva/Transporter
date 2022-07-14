@@ -7,7 +7,8 @@ export (float) var life
 func _ready():
 	$LifeTimer.start(life)
 
-func _physics_process(delta):
+func _physics_process(_delta):
+# warning-ignore:return_value_discarded
 	move_and_collide(direction * Speed)
 #
 func _on_LifeTimer_timeout():

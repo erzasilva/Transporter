@@ -10,9 +10,7 @@
 [ext_resource path="res://Assets/Custom/dialouge-box-2.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Custom/barsHorizontal.png" type="Texture" id=9]
 [ext_resource path="res://UI/PauseMenu.tscn" type="PackedScene" id=10]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 80.0
+[ext_resource path="res://UI/LevelEnd.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 5 )
@@ -35,7 +33,6 @@ self_modulate = Color( 1, 1, 1, 0.192157 )
 position = Vector2( 62, 513 )
 normal = ExtResource( 2 )
 pressed = ExtResource( 2 )
-shape = SubResource( 1 )
 
 [node name="InnerRing" type="TextureRect" parent="."]
 margin_left = 111.0
@@ -66,6 +63,7 @@ margin_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_clip_content = true
+mouse_filter = 2
 theme = SubResource( 3 )
 custom_constants/vseparation = 5
 custom_constants/hseparation = 5
@@ -76,6 +74,7 @@ margin_left = 7.0
 margin_top = -1.0
 margin_right = 132.0
 margin_bottom = 17.0
+mouse_filter = 2
 theme = SubResource( 5 )
 bbcode_enabled = true
 bbcode_text = "Shields: "
@@ -103,6 +102,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
+mouse_filter = 2
 custom_constants/separation = 20
 alignment = 1
 
@@ -152,6 +152,7 @@ texture_hover = ExtResource( 9 )
 expand = true
 
 [node name="PauseMenu" parent="." instance=ExtResource( 10 )]
-visible = false
+
+[node name="LevelEnd" parent="." instance=ExtResource( 11 )]
 
 [connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]
