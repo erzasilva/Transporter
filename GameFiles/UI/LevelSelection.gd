@@ -12,3 +12,8 @@ func _ready():
 		child.setup_Node()
 		cnt+=1
 
+
+
+func _on_GoBack_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://UI/MapSelectionScreen.tscn")

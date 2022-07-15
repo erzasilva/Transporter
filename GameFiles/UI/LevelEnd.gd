@@ -35,7 +35,11 @@ func update_screen(score):
 func _on_NextButton_pressed():
 	if complete:
 		get_tree().paused = false
+		PlayerStats.last_completed_class = PlayerStats.current_running_class
+		PlayerStats.last_completed_level = PlayerStats.current_running_level
 		if PlayerStats.current_running_level == 9:
+			PlayerStats.last_completed_class += 1
+			PlayerStats.last_completed_level = 0
 # warning-ignore:return_value_discarded
 			get_tree().change_scene("res://UI/MapSelectionScreen.tscn")
 		else:

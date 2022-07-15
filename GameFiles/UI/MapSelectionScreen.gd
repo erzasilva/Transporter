@@ -34,3 +34,8 @@ func button_toggle():
 		$Right.visible = false
 	else:
 		$Right.visible = true
+
+
+func _on_GoBack_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://UI/MainMenu.tscn")

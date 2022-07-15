@@ -8,6 +8,10 @@ func setup_Node():
 	if Tables.levelData[str(PlayerStats.current_running_class)][str(level_id)]["s"] > 0:
 		for i in range(0, Tables.levelData[str(PlayerStats.current_running_class)][str(level_id)]["s"]):
 			$MarginContainer/VBoxContainer/MedalContainer.get_child(i).visible = true
+	var temp = ((PlayerStats.current_running_class * 100) + level_id)
+	if temp <= PlayerStats.last_code():
+		$Locked.hide()
+
 
 
 func _on_ColorRect_pressed():

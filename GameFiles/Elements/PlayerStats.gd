@@ -22,14 +22,14 @@ func save_game():
 	save_data["level_data"] = save_stars_data()
 	
 	var save_file = File.new()
-	save_file.open_encrypted_with_pass("res://save_file.json", File.WRITE, "BSPIGT")
+	save_file.open_encrypted_with_pass("user://save_file.json", File.WRITE, "BSPIGT")
 	save_file.store_line(to_json(save_data))
 	save_file.close()
 	
 
 func load_game():
 	var save_file = File.new()
-	if (save_file.open_encrypted_with_pass("res://save_file.json", File.READ, "BSPIGT") == OK):	
+	if (save_file.open_encrypted_with_pass("user://save_file.json", File.READ, "BSPIGT") == OK):	
 		var save_data = parse_json(save_file.get_line())
 		save_file.close()
 		player_money = save_data["money"]
@@ -55,3 +55,7 @@ func load_star_data(level_data):
 		for j in range(0, Tables.levelData[str(i)].size()):
 			if Tables.levelData[str(i)].has(str(j)) and level_data[str(i)].has(str(j)):
 				Tables.levelData[str(i)][str(j)]["s"] = level_data[str(i)][str(j)]
+
+func last_code():
+	return ((last_completed_class * 100) + last_completed_level + 1)
+	

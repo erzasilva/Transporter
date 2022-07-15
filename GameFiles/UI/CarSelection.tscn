@@ -237,24 +237,24 @@ margin_bottom = 582.0
 alignment = 1
 
 [node name="Label" type="Label" parent="BG/PurchaseConfirmation/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
-margin_top = 34.0
-margin_right = 671.0
-margin_bottom = 127.0
+margin_top = 137.0
+margin_right = 922.0
+margin_bottom = 230.0
 text = "Are you sure you wish to purchase this car"
 align = 1
 valign = 1
 autowrap = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BG/PurchaseConfirmation/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
-margin_top = 131.0
-margin_right = 671.0
-margin_bottom = 271.0
+margin_top = 234.0
+margin_right = 922.0
+margin_bottom = 374.0
 rect_min_size = Vector2( 671, 70 )
 alignment = 1
 
 [node name="Okay" type="TextureButton" parent="BG/PurchaseConfirmation/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 53.0
-margin_right = 333.0
+margin_left = 179.0
+margin_right = 459.0
 margin_bottom = 140.0
 rect_min_size = Vector2( 280, 140 )
 texture_normal = ExtResource( 10 )
@@ -274,8 +274,8 @@ margin_bottom = 22.5
 text = "Yes"
 
 [node name="Cancel" type="TextureButton" parent="BG/PurchaseConfirmation/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 337.0
-margin_right = 617.0
+margin_left = 463.0
+margin_right = 743.0
 margin_bottom = 140.0
 rect_min_size = Vector2( 280, 140 )
 texture_normal = ExtResource( 10 )
